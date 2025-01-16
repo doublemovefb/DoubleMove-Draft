@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "name": "John Doe",
+        "team": "Team A",
+        "position": "Forward",
+        "stats": [10, 15, 8, 12, 9],
+        "scouting_report": "An excellent forward with a strong ability to score under pressure."
+    },
+    {
+        "id": 2,
+        "name": "Jane Smith",
+        "team": "Team B",
+        "position": "Guard",
+        "stats": [12, 14, 10, 8, 11],
+        "scouting_report": "A fast-paced guard who excels at creating plays."
+    },
+    {
+        "id": 3,
+        "name": "James Brown",
+        "team": "Team A",
+        "position": "Center",
+        "stats": [14, 10, 12, 9, 13],
+        "scouting_report": "A dominant presence in the paint with excellent defensive skills."
+    },
+    {
+        "id": 4,
+        "name": "Emily Davis",
+        "team": "Team C",
+        "position": "Forward",
+        "stats": [11, 13, 12, 14, 10],
+        "scouting_report": "A versatile forward with great endurance and court vision."
+    }
+]
