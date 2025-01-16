@@ -1,11 +1,13 @@
 const players = [
     { id: 1, name: "John Doe", team: "Team A", stats: [10, 15, 8, 12, 9] },
     { id: 2, name: "Jane Smith", team: "Team B", stats: [12, 14, 10, 8, 11] },
+    { id: 3, name: "James Brown", team: "Team A", stats: [14, 10, 12, 9, 13] },
+    { id: 4, name: "Emily Davis", team: "Team C", stats: [11, 13, 12, 14, 10] },
 ];
 
-const renderPlayers = () => {
+const renderPlayers = (filteredPlayers) => {
     const container = document.querySelector('main > div');
-    container.innerHTML = players.map(player => `
+    container.innerHTML = filteredPlayers.map(player => `
         <div class="bg-white rounded shadow p-4">
             <h2 class="text-lg font-bold">${player.name}</h2>
             <p class="text-sm text-gray-500">${player.team}</p>
@@ -13,7 +15,7 @@ const renderPlayers = () => {
         </div>
     `).join('');
 
-    players.forEach(player => {
+    filteredPlayers.forEach(player => {
         const ctx = document.getElementById(`chart-${player.id}`);
         new Chart(ctx, {
             type: 'radar',
@@ -30,4 +32,18 @@ const renderPlayers = () => {
     });
 };
 
-document.addEventListener('DOMContentLoaded', renderPlayers);
+const handleSearch = () => {
+    const query = document.getElementById('search-bar').value.toLowerCase();
+    const filteredPlayers = players.filter(player =>
+        player.name.toLowerCase().includes(query) ||
+        player.team.toLowerCase().includes(query)
+    );
+    renderPlayers(filteredPlayers);
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    const searchBar = document.getElementById('search-bar');
+    searchBar.addEventListener('input', handleSearch);
+    renderPlayers(players);
+});
+
