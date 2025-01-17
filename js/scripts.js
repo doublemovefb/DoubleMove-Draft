@@ -46,4 +46,17 @@ document.addEventListener('DOMContentLoaded', () => {
     searchBar.addEventListener('input', handleSearch);
     renderPlayers(players);
 });
+let players = [];
+
+const fetchPlayers = async () => {
+    const response = await fetch('./assets/data/players.json');
+    players = await response.json();
+    renderPlayers(players);
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    const searchBar = document.getElementById('search-bar');
+    searchBar.addEventListener('input', handleSearch);
+    fetchPlayers();
+});
 
